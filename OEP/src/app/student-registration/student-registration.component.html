@@ -1,0 +1,141 @@
+<div class="background">
+  <div class="background-overlay">
+<div class="studentcss" align="center">
+  <h1>STUDENT REGISTRATION</h1>
+    <div class="container" class="form-group" >
+    <form #studregform="ngForm" (ngSubmit)="onAddStudent(studregform)">
+      
+      <label for="sid">Student Id</label>
+      <input type="text" id="sid" class="form-control"
+      name="studentId"
+      ngModel
+      #sid="ngModel"
+      required
+      pattern="^[1-9][0-9][0-9][0-9]$">
+      <div *ngIf="sid.invalid && sid.touched">
+          <span class="text-danger" *ngIf="sid.errors.required">id  is required</span>
+          <span class="text-danger" *ngIf="sid.errors.pattern">incorrect student-id</span>
+      </div>
+      <br><br>
+      <div class="form-group">
+      <label for="sname">Name</label> 
+    <input type="text" id="sname" class="form-control"
+    name="studentName"
+    ngModel
+    #sname="ngModel"
+    required
+            minlength="4"
+            maxlength="12"
+            pattern="^[a-zA-Z]{4,12}$">
+            <div  *ngIf="sname.invalid && sname.touched">
+              <span class="text-danger" *ngIf="sname.errors.required">username is required</span>
+              <span class="text-danger" *ngIf="sname.errors.minlength">Min {{ sname.errors.minlength.requiredLength }} characters are required</span>
+              <span class="text-danger" *ngIf="sname.errors.maxlength">Max 12 character are allowed</span>
+              <span class="text-danger" *ngIf="sname.errors.pattern">special character and numbers are not reqiured</span>
+            </div>
+    </div>        
+    <br><br>
+    <div class="form-group">
+    <label for="spass">Password</label> 
+    <input type="password" id="spass" class="form-control"
+    name="studentPassword"
+    ngModel
+    #pass="ngModel"
+    required><br><br>
+    </div>
+    
+    <!--<div class="form-group"><label for="semail">Email</label> 
+    <input type="text" id="semail" class="form-control"
+    name="email"
+    ngModel
+    #email="ngModel"
+    required
+    pattern="^[A-Za-z0-9_\-\.]+[@][A-Za-z]+[.][A-Za-z]{2,3}$"><br><br>
+    </div>
+    <div *ngIf="!email.valid && email.touched">
+          <span class="text-danger" *ngIf="email.errors.required">*Email is required</span> 
+          <span class="text-danger" *ngIf="email.errors.pattern">*Email is not valid</span><br> 
+    </div><br>-->
+    
+    <!--<label for="sadd">Address</label> <br>
+    <textarea id="sadd" rows="5" class="form-control"
+    name="sad"
+    ngModel
+    #sad="ngModel"
+    required></textarea>
+    <div *ngIf="!sadd.valid && sadd.touched" align="left" >
+                      <span class="text-danger" *ngIf="sadd.errors.required">*Address is required</span> 
+                    </div><br><br><br>
+    
+    <label for="scno">Contact No</label> 
+    <input type="text" id="scno" class="form-control"
+    name="con"
+    ngModel
+    #con="ngModel"
+    required
+    pattern="^[789][0-9]{9}$"><br><br>
+    <div *ngIf="!scno.valid && scno.touched" >
+                      <span class="text-dang
+                      er" *ngIf="scno.errors.required">*Contact number is required</span> 
+                      <span class="text-danger" *ngIf="scno.errors.pattern">*Contact number is invalid</span>
+                    </div><br>-->
+    
+    
+    <label for="gname">Guardian Name</label>
+    <input type="text" id="gname" class="form-control"
+    name="guardianName"
+    ngModel
+    #gname="ngModel"
+    required
+    minlength="4"
+    maxlength="12"
+    pattern="^[a-zA-Z]{4,12}$">
+    <div  *ngIf="gname.invalid && gname.touched">
+      <span class="text-danger" *ngIf="gname.errors.required">guardian-name is required</span>
+      <span class="text-danger" *ngIf="gname.errors.minlength">Min {{ gname.errors.minlength.requiredLength }} characters are required</span><br>
+      <span class="text-danger" *ngIf="gname.errors.maxlength">Max 12 character are allowed</span>
+      <span class="text-danger" *ngIf="gname.errors.pattern">special character and numbers are not reqiured</span>
+    </div><br><br>
+    
+    <label for="cid">Course Id</label> 
+    <select (change)="onCourseChange(studregform)" id="cid" class="form-control"
+                     name="courseId"
+                     ngModel
+                     #cid="ngModel"
+                     required>
+      <option *ngFor="let cr of courses" value="{{cr.courseId}}"> {{ cr.courseName }} </option>       
+    </select><br><br>
+    
+    <label for="str">Stream</label> 
+    <select (change)="onCourseChange(studregform)" id="str" class="form-control"
+                      name="streamName"
+                      ngModel
+                      #str="ngModel"
+                      required>
+      <option *ngFor="let st of streams" value="{{st.streamName}}"> {{ st.streamName }} </option>  
+    </select>
+    <br><br>
+    <label for="rdt">Registration Date</label>
+    <input type="text" id="rdt" class="form-control"
+                        name="registrationDate"
+                        ngModel
+                        #reg="ngModel"
+                        required><br><br>
+    <label for="mode">Mode Of Payment</label>
+    <select id="mode" class="form-control"
+    name="modeOfPayment"
+    ngModel
+    #mode="ngModel"
+    required>
+      <option>H</option>
+      <option>F </option>
+      <option>A</option>
+    </select>
+    <br><br><br>
+    <input type="submit" value="Register" class="btn btn-primary form-control">
+    </form>
+    </div>
+    </div>
+  </div>
+</div>
+    

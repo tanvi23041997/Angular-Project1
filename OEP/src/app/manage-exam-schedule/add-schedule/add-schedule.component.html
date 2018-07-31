@@ -1,0 +1,64 @@
+<br><br><br><br>
+<div class="container" align="center">
+  <h2>ADD EXAM SCHEDULE</h2><br><br>
+<form  #scheduleAddform=ngForm (ngSubmit)="onAddSchedule(scheduleAddform)">
+    <div class="form-group">
+      <select id="cid" class="form-control" 
+          name="courseid"
+          ngModel
+          #cid="ngModel">
+        <option *ngFor="let cr of courses" value="{{cr.courseId}}"> {{ cr.courseName }} </option>       
+      </select>
+    </div>
+
+    <div *ngIf="!cid.valid && cid.touched" align="left">
+      <span class="text-danger" *ngIf="sem.errors.required">Course ID is REQUIRED</span>
+    </div>
+
+    <div class="form-group">
+        <input type="text" class="form-control" autocomplete="off" placeholder="Semester"
+        ngModel
+        name="semester"
+        #sem="ngModel"
+        minlength="1"
+        maxlength="2"
+        pattern="^([1-9]|[1-9][0-9])$"
+        required/>
+    </div>
+    <div *ngIf="!sem.valid && sem.touched" align="left">
+        <span class="text-danger" *ngIf="sem.errors.required">Semester is REQUIRED</span>
+        <span class="text-danger" *ngIf="sem.errors.maxlength">Invalid Semester</span>
+        <span class="text-danger" *ngIf="sem.errors.pattern">Semester should contain only numbers</span> 
+    </div>
+    
+    <div class="form-group"> 
+    <input type="text" class="form-control" autocomplete="off" placeholder="Start Date"
+      ngModel
+      name="start_date"
+      #sdate="ngModel"
+      required>
+    </div>
+    <div *ngIf="!sdate.valid && sdate.touched" align="left">
+      <span class="text-danger" *ngIf="sdate.errors.required">Start date is REQUIRED</span>
+    </div>
+
+    <div class="form-group"> 
+      <input type="date" class="form-control" autocomplete="off" placeholder="End Date"
+        ngModel
+        name="end_date"
+        #edate="ngModel"
+        required>
+    </div>
+
+    <div *ngIf="!edate.valid && edate.touched" align="left">
+      <span class="text-danger" *ngIf="edate.errors.required">End date is REQUIRED</span>
+    </div>
+
+    <div class="form-group" >
+      <input type="submit" class="btn btn-primary" value="Add">
+    </div>   
+        
+    </form>
+</div>
+
+

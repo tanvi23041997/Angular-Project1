@@ -1,0 +1,42 @@
+<br><br><br><br>
+<div class="container" align="center">
+  <h2>DELETE COURSE</h2><br><br>
+<form  #courseAddform=ngForm (ngSubmit)="onDeleteCourse(courseAddform)">
+    <div class="form-group">
+        <label for="cid">Enter Course ID</label>
+        <input type="text" id="cid" class="form-control" autocomplete="off" placeholder="Course ID"
+         ngModel
+         name="courseId"
+         #cid="ngModel"
+         maxlength="4" 
+         required
+         pattern="^([L | l][0-9]{3,})$" >
+         
+      </div>
+      <div *ngIf="!cid.valid && cid.touched" align="left">
+          <span class="text-danger" *ngIf="cid.errors.required">Course ID is REQUIRED</span>
+          <span class="text-danger" *ngIf="cid.errors.pattern">Course ID must start with L followed by four digits</span> 
+       </div>
+
+       <div class="form-group" >
+            <input type="button" (click)="onDelete()" class="btn btn-danger active" value="Delete course" >
+        </div>   
+        
+    </form>
+        <table class="table">
+            <tr>
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Course Period</th>
+            <th>Course Fee</th>
+            </tr>
+            <tr *ngFor="let course of courses">
+            <td>{{course.courseId}}</td>
+            <td>{{course.courseName}}</td>
+            <td>{{course.period}}</td>
+            <td>{{course.fee}}</td>
+            </tr>
+        </table>
+</div>
+
+

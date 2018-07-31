@@ -1,0 +1,32 @@
+.schedule{
+    padding:40px;
+    width:500px;
+    background-color:black;
+    border: 2px solid white;
+    border-radius: 15px;
+    opacity: 0.8;
+    color: white;
+    
+}
+.navbar-default{
+    background-color: rgb(24, 24, 24);
+    border-color: rgb(0, 0, 0);
+}
+.navbar-brand{
+    color: white;
+}
+
+.background{
+    background: url('/assets/img3.jpg');
+    background-size: cover;
+    position: relative;
+    height: 1050px;
+}
+.background-overlay{
+    position:absolute;
+    top:0;
+    bottom: 0;
+    width:100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}

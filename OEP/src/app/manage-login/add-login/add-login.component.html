@@ -1,0 +1,58 @@
+<br><br><br><br>
+<div class="container" align="center">
+  <h2>Add Login Details</h2><br><br>
+<form  #loginform=ngForm (ngSubmit)="onAddLogin(loginform)">
+    <div class="form-group">
+        
+        <input type="text" id="uname" class="form-control" autocomplete="off" placeholder="Student ID"
+         ngModel
+         name="user"
+         #uname="ngModel"
+         required
+         minlength="4"
+         maxlength="4"
+         pattern="^([0-9])$" >
+         
+      </div>
+      <div *ngIf="!uname.valid && uname.touched" align="left">
+          <span class="text-danger" *ngIf="uname.errors.required">Student ID is REQUIRED</span>
+          <span class="text-danger" *ngIf="uname.errors.minlength">Minimum Length can be 4<br></span>
+          <span class="text-danger" *ngIf="uname.errors.maxlength">Maximum Length can be 4<br></span>
+          <span class="text-danger" *ngIf="uname.errors.pattern">Only numbers are not allowed</span> 
+       </div>
+
+    <div class="form-group">
+        <input type="password" id="pass" class="form-control" placeholder="Password"
+         ngModel
+         name="password"
+         #pass="ngModel"
+         minlength="7"
+         maxlength="14"
+         pattern="^([a-zA-z0-9!@#\$%\^&\*]{0,}[a-z]{1,}[a-zA-z0-9!@#\$%\^&\*]{0,}[A-Z]{1,}[a-zA-z0-9!@#\$%\^&\*]{0,}[0-9]{1,}[a-zA-z0-9!@#\$%\^&\*]{0,}[!@#\$%\^&\*]{1,})$"
+         required>
+    </div>
+    <div *ngIf="!pass.valid && pass.touched" align="left">
+        <span class="text-danger" *ngIf="pass.errors.required">Password is REQUIRED</span>
+        <span class="text-danger" *ngIf="pass.errors.minlength">Min {{pass.errors.minlength.required}} characters are required<br></span>
+        <span class="text-danger" *ngIf="pass.errors.maxlength">Max {{pass.errors.maxlength.required}} characters are required<br></span>
+       </div>
+
+    <div class="form-group">
+        <input type="password" id="repass" class="form-control" placeholder="Retype Password"
+      ngModel
+      name="repass"
+      #repass="ngModel"
+      equal="pass"
+      required>
+     </div>
+     <div *ngIf="!repass.valid && repass.touched" align="left">
+        <span class="text-danger" *ngIf="repass.errors.required">RETYPE Password </span>
+        <span class="text-danger" *ngIf="Check(myForms)">Password DOESN'T MATCHES</span>
+        </div>-->
+     <div class="form-group" >
+        <input type="submit" class="btn btn-primary" value="Submit">
+      </div>     
+    </form>
+</div>
+
+

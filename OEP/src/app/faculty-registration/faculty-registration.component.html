@@ -1,0 +1,128 @@
+<div class="background">
+  <div class="background-overlay">
+      <div class="navbar navbar-default">
+          <div class="container">
+              <div class="navbar-header">
+                <button class="navbar-toggle" data-target="#mymenu" data-toggle="collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a routerLink="/thome" class="navbar-brand">EDUCATION PORTAL</a></div>
+                <div class="collapse navbar-collapse" id="mymenu" >
+                  <ul class="nav navbar-nav" >
+                  <li class="active">
+                      <li routerLinkActive="active" routerLinkActiveOption="{exact:true}"><a routerLink="/freg">REGISTRATION</a></li>
+                  <li  routerLinkActive="active" routerLinkActiveOption="{exact:true}"><a routerLink="/edit">EDIT PROFILE</a></li>
+                  <li routerLinkActive="active" routerLinkActiveOption="{exact:true}"><a routerLink="/examsched">VIEW SCHEDULE</a></li>
+                </ul>
+               </div>
+            </div>
+          </div>
+    <br><br>
+  <div class="container"  align="center">
+        <div class="myForm">
+            <form #regForm="ngForm" (ngSubmit)="onRegister(regForm)">
+              <div class="form-group" align="left">
+                  <h1>TEACHER REGISTRATION</h1>
+                <br><br>
+                <label for="tname">NAME:</label>
+                <input type="text" id="tname" class="form-control" 
+                  name="teacherName"
+                  ngModel
+                  required
+                  minlength="4"
+                  maxlength="12"
+                  #tname="ngModel"
+                  pattern="^[A-Za-z]{4,12}$">
+              </div>
+              <div *ngIf="!tname.valid && tname.touched" align="left">
+                <span class="text-danger" *ngIf="tname.errors.required">*Name is required</span><br>
+                <span class="text-danger" *ngIf="tname.errors.minlength">*Min {{ tname.errors.minlength.requiredLength }} characters are required</span>
+                <span class="text-danger" *ngIf="tname.errors.pattern">*Special characters and numbers not allowed</span>
+              </div><br>
+
+              <div class="form-group" align="left">
+                <label for="highqual">HIGHEST QUALIFICATION:</label>
+                  <select id="Hqual" class="form-control" autocomplete="on" name="highQual" ngModel>
+                    <option>----</option>
+                    <option value="btech">Btech</option>
+                    <option value="mtech">Mtech</option>
+                    <option value="mba">MBA</option>
+                    <option value="mca">MCA</option>
+                    <option value="others">Others</option>
+                  </select><br>
+              </div>
+  
+              <div class="form-group" align="left">
+                <label for="email">EMAIL:</label>
+                <input type="text" id="email" class="form-control"  
+                  name="teacherEmail"
+                  ngModel
+                  required
+                  pattern="^[A-Za-z0-9_\-\.]+[@][A-Za-z]+[.][A-Za-z]{2,3}$"
+                  patterns="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                  #email="ngModel">
+              </div>
+              <div *ngIf="!email.valid && email.touched" align="left" >
+                <span class="text-danger" *ngIf="email.errors.required">*Email is required</span> 
+                <span class="text-danger" *ngIf="email.errors.pattern">*Email is not valid</span><br> 
+              </div><br>
+              
+              <div class="form-group" align="left">
+                <label for="contno">CONTACT NO:</label>
+                <input type="text" id="no" class="form-control" 
+                  name="teacherContact"
+                  required
+                  ngModel
+                  pattern="^[789][0-9]{9}$"
+                  #contno="ngModel">
+              </div>
+              <div *ngIf="!contno.valid && contno.touched" align="left" >
+                <span class="text-danger" *ngIf="contno.errors.required">*Contact number is required</span> 
+                <span class="text-danger" *ngIf="contno.errors.pattern">*Contact number is invalid</span>
+              </div><br>
+              
+  
+              <div class="form-group" align="left">
+                <label for="address">ADDRESS:</label><br>
+                <textarea rows="4"  name="teacherAddress" class="form-control"  ngModel
+                #address="ngModel"
+                required></textarea>   
+              </div>
+              <div *ngIf="!address.valid && address.touched" align="left" >
+                <span class="text-danger" *ngIf="address.errors.required">*Address is required</span> 
+              </div><br>
+              
+              
+              <div class="form-group" align="left">
+                  <label for="exp">EXPERIENCE:</label>
+                  <input type="text" id="exp" class="form-control" 
+                    name="teacherExperience"
+                    ngModel
+                    #exp="ngModel"
+                    required>
+              </div>
+              <div *ngIf="!exp.valid && exp.touched" align="left" >
+                <span class="text-danger" *ngIf="exp.errors.required">*Experience is required</span> 
+              </div><br>
+              
+
+
+              <div class="form-group" align="left">
+                  <label for="rate">RATING:</label>
+                  <input type="text" id="rate" class="form-control" 
+                    name="rating"
+                    ngModel
+                    #rate="ngModel"><br>
+              </div>
+              <div class="text-danger" id="errors">
+                <div >
+                  <input type="submit"  class="btn btn-primary active" value="REGISTER" >
+                </div>
+              </div>
+          </form>
+        </div>
+    </div>               
+  </div>           
+</div>

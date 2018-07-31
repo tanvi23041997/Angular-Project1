@@ -1,0 +1,49 @@
+<div class="background">
+    <div class="background-overlay">
+        <div class="navbar navbar-default">
+          <div class="container">
+              <div class="navbar-header">
+                <button class="navbar-toggle" data-target="#mymenu" data-toggle="collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">EDUCATION PORTAL</a></div>
+                <div class="collapse navbar-collapse" id="mymenu" >
+                  <ul class="nav navbar-nav" >
+                  <li class="active">
+                  <li routerLinkActive="active" routerLinkActiveOption="{exact:true}"><a routerLink="/slogin">Student Login</a></li>
+                  <li routerLinkActive="active" routerLinkActiveOption="{exact:true}"><a routerLink="/tlogin">Teacher Login</a></li>
+                  <li routerLinkActive="active" routerLinkActiveOption="{exact:true}"><a routerLink="/alogin">Admin Login</a></li>
+                </ul>
+               </div>
+            </div>
+          </div>
+          <br><br><br><br><br><br>
+
+          <div align="center" >
+              <div class="login">
+                  <h2>STUDENT LOGIN</h2><br>
+                  <form #loginForm="ngForm" (ngSubmit)='onLogin(loginForm)'>
+                    <div align="left" class="form-group">
+                      <input type ="text" id="auser" class="form-control" placeholder="Student ID"
+                      required
+                      ngModel 
+                      name="suser">
+                    </div><br>
+                    <div align="left" class="form-group">
+                      <input type ="password" id="apass" class="form-control" placeholder="Password"
+                      required
+                      ngModel 
+                      name="pass">
+                    </div>
+                    <span class="text-danger" id="error"></span>
+                    <br><br>
+                    <button class="btn">Login</button>
+          
+                </form>
+            </div>
+
+          </div>
+    </div>
+</div>

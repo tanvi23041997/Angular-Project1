@@ -1,0 +1,37 @@
+<br><br><br><br>
+<div class="container" align="center">
+  <h2>DELETE LOGIN ID</h2><br><br>
+<form  #delschform=ngForm (ngSubmit)="onDeleteCourse(delschform)">
+    <div class="form-group">
+        <label for="cid">Enter User ID/ Student ID</label>
+        <input type="text" id="id" class="form-control" autocomplete="off" placeholder="Student ID"
+         ngModel
+         name="user"
+         #id="ngModel"
+         maxlength="4" 
+         required
+         pattern="^([L | l][0-9]{3,})$" >
+         
+      </div>
+      <div *ngIf="!id.valid && id.touched" align="left">
+          <span class="text-danger" *ngIf="id.errors.required">Student ID is REQUIRED</span>
+       </div>
+
+       <div class="form-group" >
+            <input type="button"  class="btn btn-danger active" value="Delete Login" >
+        </div>   
+        
+    </form>
+        <table class="table">
+            <tr>
+            <th>Student ID/User ID</th>
+            <th>Password</th>
+            </tr>
+            <tr *ngFor="let login of logins">
+            <td>{{login.user}}</td>
+            <td>{{login.password}}</td>
+            </tr>
+        </table>
+</div>
+
+

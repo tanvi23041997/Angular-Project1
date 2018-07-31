@@ -1,0 +1,33 @@
+<br><br><br><br>
+<div class="container" align="center">
+  <h2>DELETE EXAM SCHEDULE</h2><br><br>
+  <form  #deleteScheduleform=ngForm (ngSubmit)="onDeleteSchedule(deleteScheduleform)">
+    <label for="cid" align="left">Course Id</label> 
+    <select (change)="onCourseChange(studregform)" id="cid" class="form-control"
+                    name="courseId"
+                    ngModel
+                    #cid="ngModel">
+      <option *ngFor="let cr of courses" value="{{cr.courseId}}"> {{ cr.courseName }} </option>       
+    </select>
+
+    <div *ngIf="!cid.valid && cid.touched" align="left">
+      <span class="text-danger" *ngIf="sem.errors.required">Course ID is REQUIRED</span>
+    </div>
+
+
+    <label for="sem" align="left">Stream</label> 
+    <select (change)="onCourseChange(deleteScheduleform)" id="str" class="form-control"
+                      name="semester"
+                      ngModel
+                      #str="ngModel">
+      <option *ngFor="let st of semester" value="{{st.semester}}"> {{ st.semester }} </option>  
+    </select>
+    <div *ngIf="!cid.valid && cid.touched" align="left">
+      <span class="text-danger" *ngIf="sem.errors.required">Course ID is REQUIRED</span>
+    </div>
+
+    <div class="form-group">
+        <input type="button" (click)="onDelete()" class="btn btn-danger active" value="Delete course"/>
+</div>
+
+

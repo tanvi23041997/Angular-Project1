@@ -1,0 +1,110 @@
+<div class="background">
+    <div class="background-overlay">
+        <div class="navbar navbar-default">
+          <div class="container">
+              <div class="navbar-header">
+                <button class="navbar-toggle" data-target="#mymenu" data-toggle="collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a routerLink="/thome" class="navbar-brand">EDUCATION PORTAL</a></div>
+                <div class="collapse navbar-collapse" id="mymenu" >
+                  <ul class="nav navbar-nav" >
+                  <li class="active">
+                        <li routerLinkActive="active" routerLinkActiveOption="{exact:true}"><a routerLink="/freg">REGISTRATION</a></li>
+                        <li  routerLinkActive="active" routerLinkActiveOption="{exact:true}"><a routerLink="/edit">EDIT PROFILE</a></li>
+                  <li routerLinkActive="active" routerLinkActiveOption="{exact:true}"><a routerLink="/examsched">VIEW SCHEDULE</a></li>
+                </ul>
+               </div>
+            </div>
+          </div>
+          <br><br><br> 
+  <div align="center">
+    <div class="login">
+      <h1>EDIT PROFILE</h1>
+     <form [formGroup]="teacherDetails">
+
+       <div class="form-group" align="left">
+           <label for="tname">NAME:</label>
+           <input type="text" id="tname" class="form-control" 
+           name="teacherName"
+           #teacherName
+           formControlName="teacherName"
+           (keyup.enter)="getteacherDetails(teacherName.value)">
+           {{ currentTeach | json}}
+       </div>
+
+       <div class="form-group" align="left">
+           <label for="highQual">HIGHEST QUALIFICATION:</label>
+           <select  class="form-control" autocomplete="on" name="highQual" 
+           #highQual
+           formControlName="highQual"
+           (keyup.enter)="getteacherDetails(highQual.value)">
+             <option>----</option>
+             <option value="btech">Btech</option>
+             <option value="mtech">Mtech</option>
+             <option value="mba">MBA</option>
+             <option value="mca">MCA</option>
+             <option value="others">Others</option>
+           </select><br>
+       </div>
+
+       <div class="form-group" align="left">
+           <label for="teacherEmail">EMAIL:</label>
+           <input type="text" id="email" class="form-control"  
+           name="teacherEmail"
+           #teacherEmail
+           formControlName="teacherEmail"
+           (keyup.enter)="getteacherDetails(teacherEmail.value)">
+       </div>
+     
+       <div class="form-group" align="left">
+           <label for="teacherContact">CONTACT NO:</label>
+           <input type="text" id="no" class="form-control" 
+            name="teacherContact"
+            #teacherContact
+            formControlName="teacherContact"
+            (keyup.enter)="getteacherDetails(teacherContact.value)">
+       </div>
+
+       <div class="form-group" align="left">
+           <label for="address">ADDRESS:</label><br>
+           <textarea rows="4"  name="teacherAddress" class="form-control" name="teacherAddress" 
+           #teacherAddress
+           name="teacherAddress"
+           #teacherAddress
+           formControlName="teacherAddress"
+           (keyup.enter)="getteacherDetails(teacherAddress.value)"></textarea>   
+       </div>
+
+       <div class="form-group" align="left">
+           <label for="exp">EXPERIENCE:</label>
+           <input type="text" id="exp" class="form-control" 
+           name="teacherExperience"
+           #teacherExperience
+           name="teacherExperience"
+           formControlName="teacherExperience"
+           (keyup.enter)="getteacherDetails(teacherExperience.value)">  
+       </div>
+
+       <div class="form-group" align="left">
+           <label for="rate">RATING:</label>
+           <input type="text" id="rate" class="form-control" 
+           name="rating"
+           #rating
+           formControlName="rating"
+           (keyup.enter)="getteacherDetails(rating.value)">  
+       </div>
+     
+       <div class="form-group" >
+           <input type="button"  (click)="onUpdate()" class="btn btn-warning active" value="Update employee" > &nbsp; &nbsp; &nbsp;
+       </div>
+     
+   
+     </form>
+   </div> 
+ </div>
+</div>
+</div>
+

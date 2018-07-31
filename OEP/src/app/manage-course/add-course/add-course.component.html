@@ -1,0 +1,72 @@
+<br><br><br><br>
+<div class="container" align="center">
+  <h2>ADD COURSE</h2><br><br>
+<form  #courseAddform=ngForm (ngSubmit)="onAddCourse(courseAddform)">
+    <div class="form-group">
+        
+        <input type="text" id="uname" class="form-control" autocomplete="off" placeholder="Course ID"
+         ngModel
+         name="courseId"
+         #cid="ngModel"
+         maxlength="4"
+         required
+         pattern="^([L | l][0-9]{3,})$" >
+         
+      </div>
+      <div *ngIf="!cid.valid && cid.touched" align="left">
+          <span class="text-danger" *ngIf="cid.errors.required">Course ID is REQUIRED</span>
+          <span class="text-danger" *ngIf="cid.errors.pattern">Course ID must start with L followed by four digits</span> 
+       </div>
+
+       <div class="form-group">
+        
+        <input type="text"  class="form-control" autocomplete="off" placeholder="Course Name"
+         ngModel
+         name="courseName"
+         #cname="ngModel"
+         required
+         pattern="^([A-Za-z.]{1,}|[A-Za-z]{1,}[ ][A-Za-z.]{1,})$" >
+      </div>
+
+      <div *ngIf="!cname.valid && cname.touched" align="left">
+          <span class="text-danger" *ngIf="cname.errors.required">Course Name is REQUIRED</span>
+          <span class="text-danger" *ngIf="cname.errors.pattern">Only Alphabets are allowed</span> 
+       </div>
+
+
+       <div class="form-group"> 
+        <input type="text" class="form-control" autocomplete="off" placeholder="Course Period"
+         ngModel
+         name="period"
+         #cperiod="ngModel"
+         required
+         pattern="^([0-9]{1,})$">
+         
+      </div>
+      <div *ngIf="!cperiod.valid && cperiod.touched" align="left">
+          <span class="text-danger" *ngIf="cperiod.errors.required">Course Period is REQUIRED</span>
+          <span class="text-danger" *ngIf="cperiod.errors.pattern">Only numbers are allowed</span> 
+       </div>
+
+       <div class="form-group"> 
+        <input type="text"  class="form-control" autocomplete="off" placeholder="Course Fee"
+         ngModel
+         name="fee"
+         #cfee="ngModel"
+         required
+         pattern="^([0-9]{1,})$">
+         
+      </div>
+      <div *ngIf="!cfee.valid && cfee.touched" align="left">
+          <span class="text-danger" *ngIf="cfee.errors.required">Course Fee is REQUIRED</span>
+          <span class="text-danger" *ngIf="cfee.errors.pattern">Only numbers are allowed</span> 
+       </div>
+        <div class="text-danger" id="chkerror"></div>
+       <div class="form-group" >
+        <input type="submit" class="btn btn-primary" value="Submit">
+      </div>   
+        
+    </form>
+</div>
+
+

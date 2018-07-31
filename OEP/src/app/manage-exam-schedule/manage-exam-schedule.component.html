@@ -1,0 +1,27 @@
+<div class="background">
+    <div class="background-overlay">
+      <div class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" data-target="#mymenu" data-toggle="collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">EDUCATION PORTAL</a></div>
+            <div class="collapse navbar-collapse" id="mymenu" >
+              <ul class="nav navbar-nav" >
+              <li class="active">
+              <a href ="/adminHome">Home</a></li>
+              <li routerLinkActive="active" routerLinkActiveOption="{exact:true}" id="highlight"><a routerLink="addExam">Add Exam schedule</a></li>
+              <li routerLinkActive="active" routerLinkActiveOption="{exact:true}" id="highlight"><a routerLink="deleteExam">Delete Exam Shedule</a></li>
+              <li routerLinkActive="active" routerLinkActiveOption="{exact:true}" id="highlight"><a routerLink="updateExam">Update Exam Shedule</a></li>
+            </ul>
+            </div>
+          </div>
+        </div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  

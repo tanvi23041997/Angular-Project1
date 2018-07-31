@@ -1,0 +1,43 @@
+<div class="background">
+    <div class="background-overlay">
+        <div class="navbar navbar-default">
+          <div class="container">
+              <div class="navbar-header">
+                <button class="navbar-toggle" data-target="#mymenu" data-toggle="collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a routerLink="/thome" class="navbar-brand">EDUCATION PORTAL</a></div>
+                <div class="collapse navbar-collapse" id="mymenu" >
+                  <ul class="nav navbar-nav" >
+                  <li class="active">
+                      <li routerLinkActive="active" routerLinkActiveOption="{exact:true}"><a routerLink="/freg">REGISTRATION</a></li>
+                      <li  routerLinkActive="active" routerLinkActiveOption="{exact:true}"><a routerLink="/edit">EDIT PROFILE</a></li>
+                  <li routerLinkActive="active" routerLinkActiveOption="{exact:true}"><a routerLink="/examsched">VIEW SCHEDULE</a></li>
+                </ul>
+               </div>
+            </div>
+          </div>
+          <br><br><br> 
+<div align="center" >
+  <div class="schedule">
+      <h2>EXAM SCHEDULE</h2><br>
+      <table class="table">
+        <tr>
+          <th>COURSE ID</th>
+          <th>SEMESTER</th>
+          <th>START DATE</th>
+          <th>END DATE</th>
+        </tr>
+          <tr *ngFor="let exam of schedule">
+          <td>{{exam.courseid}}</td>
+          <td>{{exam.semester}}</td>
+          <td>{{exam.start_date}}</td>
+          <td>{{exam.end_date}}</td>
+        </tr>
+      </table>
+    <div>
+  </div>
+</div>
+</div>
